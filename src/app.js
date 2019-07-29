@@ -7,9 +7,10 @@ import HomePage from './pages/home';
 import FAQPage from './pages/faq';
 import GroupsPage from './pages/groups';
 import GroupPage from './pages/group';
-import LoginPage from "./pages/login";
-import SignupPage from "./pages/register";
-import ProfilePage from "./pages/profile";
+import LoginPage from './pages/login';
+import SignupPage from './pages/register';
+import ProfilePage from './pages/profile';
+import './app.sass';
 
 export default class App extends Component {
     render() {
