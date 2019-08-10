@@ -10,7 +10,7 @@ import GroupPage from './pages/group';
 import LoginPage from './pages/login';
 import SignupPage from './pages/register';
 import ProfilePage from './pages/profile';
-import './app.sass';
+// import './app.sass';
 
 export default class App extends Component {
     render() {
