@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Image} from "bloomer";
+import {Box, Image, Content, Icon, Columns, Column, Notification} from "bloomer";
 
 import './group-block.css'
 
@@ -8,53 +8,84 @@ const GroupBlock = () => (
         //isFullWidth="false"
         style={{"background" : "#FFFFFF",
             "box-shadow": "0px 0px 48px rgba(0, 0, 0, 0.05)",
-            "border-radius": "8px"}}>
+            "border-radius": "8px",
+            "height": "414px", "width": "352px"}}>
+        <div style={{}}>
+            <span>
+                <a href="http://localhost:3000/groups/"
+                   className="group-name">
+                    Box
+                    <button className="btn btn-sm float-right">
+                        <Icon
+                              className="fa fa-arrow-right fa-lg"
+                              style={{"color": "#0019FF"}}
+                        />
+                    </button>
+                </a>
+            </span>
+            <p style={{
+                "font-family": "Roboto",
+                "font-style": "normal",
+                "font-weight": "normal",
+                "font-size": "14px",
+                "line-height": "16px",
+                "letter-spacing": "0.25px",
 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa
-        fringilla egestas. Nullam condimentum luctus turpis.
+                "color": "#3F3F3F"
+            }}>
+                City
+            </p>
+            <Content style={{
+                "height": "172px",
+                "display": "flex",
+                "align-items": "center",
+                "justify-content": "center"
+            }}>
+                {/*<h1>Content</h1>*/}
+                <p style={{
+                    "font-family": "Roboto",
+                    "font-style": "italic",
+                    "font-weight": "normal",
+                    "font-size": "14px",
+                    "line-height": "16px",
+                    "letter-spacing": "0.25px",
+
+                    "color": "#000000"
+                }}>“Привет! Мы ищем таких же увлеченных физикой студентов!”</p>
+            </Content>
+
+            <Image isSize="64x64" src="maxresdefault.jpg" />
+            <div style={{"height": "16px"}}></div>
+
+            <Columns>
+                <Column>
+                    <p className="group-block-column-name">
+                        ПЕРИОД АРЕНДЫ
+                    </p>
+                    <p className="group-block-column-data">
+                        1 год
+                    </p>
+                </Column>
+                <Column>
+                    <p className="group-block-column-name">
+                        ВСЕГО
+                    </p>
+                    <p className="group-block-column-data">
+                        1 год
+                    </p>
+                </Column>
+                <Column>
+                    <p className="group-block-column-name">
+                        ОСТАЛОСЬ
+                    </p>
+                    <p className="group-block-column-data">
+                        1 год
+                    </p>
+                </Column>
+            </Columns>
+        </div>
+
     </Box>
 );
 
 export default GroupBlock;
-
-{/*<div className="box">*/}
-{/*    <article className="media">*/}
-{/*        <div className="media-left">*/}
-{/*            <figure className="image is-64x64">*/}
-{/*                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"/>*/}
-{/*            </figure>*/}
-{/*        </div>*/}
-{/*        <div className="media-content">*/}
-{/*            <div className="content">*/}
-{/*                <p>*/}
-{/*                    <strong>John Smith</strong>*/}
-{/*                    <small>@johnsmith</small>*/}
-{/*                    <small>31m</small>*/}
-{/*                    <br/>*/}
-{/*                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa*/}
-{/*                        fringilla egestas. Nullam condimentum luctus turpis.*/}
-{/*                </p>*/}
-{/*            </div>*/}
-{/*            <nav className="level is-mobile">*/}
-{/*                <div className="level-left">*/}
-{/*                    <a className="level-item" aria-label="reply">*/}
-{/*                        <span className="icon is-small">*/}
-{/*                            <i className="fas fa-reply" aria-hidden="true"></i>*/}
-{/*                        </span>*/}
-{/*                    </a>*/}
-{/*                    <a className="level-item" aria-label="retweet">*/}
-{/*                        <span className="icon is-small">*/}
-{/*                            <i className="fas fa-retweet" aria-hidden="true"></i>*/}
-{/*                        </span>*/}
-{/*                    </a>*/}
-{/*                    <a className="level-item" aria-label="like">*/}
-{/*                        <span className="icon is-small">*/}
-{/*                            <i className="fas fa-heart" aria-hidden="true"></i>*/}
-{/*                        </span>*/}
-{/*                    </a>*/}
-{/*                </div>*/}
-{/*            </nav>*/}
-{/*        </div>*/}
-{/*    </article>*/}
-{/*</div>*/}
-// );

@@ -8,7 +8,7 @@ import FAQPage from './pages/faq';
 import GroupsPage from './pages/groups';
 import GroupPage from './pages/group';
 import LoginPage from './pages/login';
-import SignupPage from './pages/register';
+import RegisterPage from './pages/register';
 import ProfilePage from './pages/profile';
 // import './app.sass';
 
@@ -18,7 +18,6 @@ export default class App extends Component {
             <Router>
                 <div>
                     <AppHeader/>
-                    <h1>App</h1>
                     <Switch>
                         <Route exact path={'/'} component={HomePage}/>
                         <Route exact path={'/faq'} component={FAQPage}/>
@@ -31,7 +30,7 @@ export default class App extends Component {
                                }
                         />
                         <Route exact path={'/login'} component={LoginPage}/>
-                        <Route exact path={'/signup'} component={SignupPage}/>
+                        <Route exact path={'/register'} component={RegisterPage}/>
                         <Route exact path={'/profile/:id'}
                                render = {({match}) =>
                                    <ProfilePage
