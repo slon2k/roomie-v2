@@ -5,12 +5,10 @@ import AppHeader from './components/app-header';
 import AppFooter from './components/app-footer';
 import HomePage from './pages/home';
 import FAQPage from './pages/faq';
-import GroupsPage from './pages/groups';
 import GroupPage from './pages/group';
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
 import ProfilePage from './pages/profile';
-// import './app.sass';
 
 export default class App extends Component {
     render() {
@@ -21,8 +19,7 @@ export default class App extends Component {
                     <Switch>
                         <Route exact path={'/'} component={HomePage}/>
                         <Route exact path={'/faq'} component={FAQPage}/>
-                        <Route exact path={'/groups'} component={GroupsPage}/>
-                        <Route exact path={'/groups/:id'}
+                        <Route exact path={'/group/:id'}
                                render = {({match}) =>
                                    <GroupPage
                                        id={match.params.id}

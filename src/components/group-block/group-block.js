@@ -9,7 +9,8 @@ const GroupBlock = () => (
         style={{"background" : "#FFFFFF",
             "box-shadow": "0px 0px 48px rgba(0, 0, 0, 0.05)",
             "border-radius": "8px",
-            "height": "414px", "width": "352px"}}>
+            // "height": "414px",
+            "width": "352px"}}>
         <div style={{}}>
             <span>
                 <a href="http://localhost:3000/groups/"
