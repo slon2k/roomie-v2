@@ -1,0 +1,13 @@
+.all box media media-content content user-name {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    /* identical to box height */
+
+    text-align: right;
+    letter-spacing: 0.25px;
+
+    color: #000000;
+}
