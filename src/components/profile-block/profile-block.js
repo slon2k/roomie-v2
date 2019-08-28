@@ -1,5 +1,5 @@
 import React from 'react';
-import {Columns, Column, Table, Icon} from "bloomer";
+import {Columns, Column, Table, Icon, Container} from "bloomer";
 
 import './profile-block.css';
 
@@ -14,99 +14,118 @@ const ProfileBlock = () => {
                             <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="Image"/>
                         </figure>
                     </div>
-                    <div className="media-content">
-                        <div className="content">
-                            <span style={{
-                                "font-family": "Roboto",
-                                "font-style": "normal",
-                                "font-weight": "500",
-                                "font-size": "28px",
-                                "line-height": "33px",
-                                /* identical to box height */
-
-                                "letter-spacing": "0.25px",
-
-                                "color": "#000000"
-                            }}>
-                                Коробейникова Екатерина
-                                <button className="btn btn-sm float-right">
-                                    ред.
-                                </button>
-                            </span>
-                            <div style={{
-                                "font-family": "Roboto",
-                                "font-style": "normal",
-                                "font-weight": "normal",
-                                "font-size": "20px",
-                                "line-height": "23px",
-                                "letter-spacing": "0.25px",
-
-                                "color": "#000000"
-                            }}>
-                                20 лет
-                            </div>
+                    <Container>
+                        <div>
                             <div>
                                 <span className="d-flex">
-                                    <Table>
+                                    <Table isNarrow>
                                         <tbody>
                                             <tr>
-                                                <td>Родная страна</td>
-                                                <td>10000</td>
+                                                <td>
+                                                    <div style={{
+                                                        "font-family": "Roboto",
+                                                        "font-style": "normal",
+                                                        "font-weight": "500",
+                                                        "font-size": "28px",
+                                                        "line-height": "33px",
+                                                        /* identical to box height */
+
+                                                        "letter-spacing": "0.25px",
+
+                                                        "color": "#000000"
+                                                    }}>
+                                                        Коробейникова Екатерина
+                                                    </div>
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <button className="btn btn-sm float-right">
+                                                        <div className="edit">ред.</div>
+                                                    </button>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Родной город</td>
-                                                <td>5000</td>
+                                                <td>
+                                                    <div style={{
+                                                        "font-family": "Roboto",
+                                                        "font-style": "normal",
+                                                        "font-weight": "normal",
+                                                        "font-size": "20px",
+                                                        "line-height": "23px",
+                                                        "letter-spacing": "0.25px",
+
+                                                        "color": "#000000"
+                                                    }}>
+                                                        20 лет
+                                                    </div>
+                                                </td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="column1">Родная страна</td>
+                                                <td className="column2">10000</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="column1">Родной город</td>
+                                                <td className="column2">5000</td>
+                                                <td>
+                                                    <button className="btn btn-sm float-right">
+                                                        <Icon
+                                                            className="fa fa-chevron-down fa-lg"
+                                                            style={{"color": "#0019FF"}}
+                                                        />
+                                                    </button>
+                                                    <button className="btn btn-sm float-right">
+                                                        <Icon
+                                                            className="fa fa-chevron-up fa-lg"
+                                                            style={{"color": "#0019FF"}}
+                                                        />
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td className="column1">Дата рождения</td>
+                                                <td className="column2">10000</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="column1">Университет</td>
+                                                <td className="column2">5000</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="column1">Специальность</td>
+                                                <td className="column2">5000</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="column1">Разговорные языки</td>
+                                                <td className="column2">5000</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="column1">Вредные привычки</td>
+                                                <td className="column2">5000</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="column1">Телефон</td>
+                                                <td className="column2">5000</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td className="column1">О себе</td>
+                                                <td className="column2">5000</td>
+                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </Table>
-                                    <button className="btn btn-sm float-right">
-                                        <Icon
-                                            className="fa fa-chevron-down fa-lg"
-                                            style={{"color": "#0019FF"}}
-                                        />
-                                    </button>
-                                    <button className="btn btn-sm float-right">
-                                        <Icon
-                                            className="fa fa-chevron-up fa-lg"
-                                            style={{"color": "#0019FF"}}
-                                        />
-                                    </button>
                                 </span>
-                                <Table>
-                                    <tbody>
-                                        <tr>
-                                            <td>Дата рождения</td>
-                                            <td>10000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Университет</td>
-                                            <td>5000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Специальность</td>
-                                            <td>5000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Разговорные языки</td>
-                                            <td>5000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Вредные привычки</td>
-                                            <td>5000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Телефон</td>
-                                            <td>5000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>О себе</td>
-                                            <td>5000</td>
-                                        </tr>
-                                    </tbody>
-                                </Table>
                             </div>
                         </div>
-                    </div>
+                    </Container>
                 </article>
             </div>
         </div>
