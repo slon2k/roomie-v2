@@ -21,6 +21,15 @@ const AppHeader = () => {
                             <BreadcrumbItem><a href='./register'>Регистрация</a></BreadcrumbItem>
                         </ul>
                     </Breadcrumb>
+                    <span className="d-flex">
+                        <figure className="image is-32x32">
+                            <img className="is-rounded" src="https://bulma.io/images/placeholders/32x32.png" alt="Image"/>
+                        </figure>
+                        <span>
+                            Камила К.
+                            <Icon className="fa fa-sign-out fa-lg" />
+                        </span>
+                    </span>
                 </NavbarEnd>
             </NavbarMenu>
         </Navbar>

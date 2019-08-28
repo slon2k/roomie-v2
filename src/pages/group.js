@@ -1,11 +1,19 @@
-import React from 'react'
+import React from 'react';
+import {Column, Columns, Container} from "bloomer";
+import GroupBlock from "../components/group-block";
 
 const GroupPage = ({id}) => {
     return (
-        <div>
+        <Container>
             <h3>Group</h3>
             <h4>{id}</h4>
-        </div>
+            <Columns>
+                <Column>
+                    <GroupBlock/>
+                </Column>
+                <Column></Column>
+            </Columns>
+        </Container>
     );
 };
 

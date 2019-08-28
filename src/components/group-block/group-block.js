@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Image, Content, Icon, Columns, Column, Notification} from "bloomer";
+import {Box, Image, Content, Icon, Columns, Column, Notification, Button, Control} from "bloomer";
 
 import './group-block.css'
 
@@ -55,9 +55,11 @@ const GroupBlock = () => (
                 }}>“Привет! Мы ищем таких же увлеченных физикой студентов!”</p>
             </Content>
 
-            <Image isSize="64x64" src="maxresdefault.jpg" />
-            <div style={{"height": "16px"}}></div>
-
+            <span>
+                <figure className="image is-64x64">
+                    <img className="is-rounded" src="https://bulma.io/images/placeholders/64x64.png" alt="Image"/>
+                </figure>
+            </span>
             <Columns>
                 <Column>
                     <p className="group-block-column-name">
@@ -84,8 +86,63 @@ const GroupBlock = () => (
                     </p>
                 </Column>
             </Columns>
-        </div>
+            <Control>
+                <Button style={{
+                    "background": "#001AFF",
+                    "border-radius": "4px",
+                    "height": "54px",
+                    "width": "257px",
+                    "font-family": "Roboto",
+                    "font-style": "normal",
+                    "font-weight": "500",
+                    "font-size": "14px",
+                    "line-height": "16px",
+                    "letter-spacing": "0.25px",
 
+                    "color": "#FFFFFF"
+                }}>Подать заявку</Button>
+            </Control>
+            <div>
+                <span style={{
+                    "font-family": "Roboto",
+                    "font-style": "normal",
+                    "font-weight": "500",
+                    "font-size": "18px",
+                    "line-height": "21px",
+                    /* identical to box height */
+
+                    "letter-spacing": "0.25px",
+
+                    "color": "#979797"
+                }}>Заявка подана</span>
+                <span className="float-right"  style={{
+                    "font-family": "Roboto",
+                    "font-style": "normal",
+                    "font-weight": "500",
+                    "font-size": "18px",
+                    "line-height": "21px",
+                    /* identical to box height */
+
+                    "letter-spacing": "0.25px",
+
+                    "color": "#0019FF"
+                }}>Отменить</span>
+            </div>
+            <div style={{
+                "font-family": "Roboto",
+                "font-style": "normal",
+                "font-weight": "500",
+                "font-size": "18px",
+                "line-height": "21px",
+                /* identical to box height */
+
+                "letter-spacing": "0.25px",
+
+                "color": "#C2C2C2"
+            }}>
+                Ваша заявка на рассмотрении!
+            </div>
+        </div>
     </Box>
 );
 
