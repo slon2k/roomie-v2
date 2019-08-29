@@ -18,7 +18,7 @@ const ProfileBlock = () => {
                         <div>
                             <div>
                                 <span className="d-flex">
-                                    <Table isNarrow>
+                                    <Table>
                                         <tbody>
                                             <tr>
                                                 <td>

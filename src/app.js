@@ -27,7 +27,13 @@ export default class App extends Component {
                                }
                         />
                         <Route exact path={'/login'} component={LoginPage}/>
-                        <Route exact path={'/register'} component={RegisterPage}/>
+                        <Route exact path={'/register'}
+                               render = {() =>
+                                   <RegisterPage
+                                       num={"first"}
+                                   />
+                               }
+                        />
                         <Route exact path={'/profile/:id'}
                                render = {({match}) =>
                                    <ProfilePage

@@ -10,15 +10,15 @@ const AppHeader = () => {
             </NavbarBrand>
             <NavbarMenu>
                 <NavbarStart>
-                    <NavbarItem href='./'>Главная</NavbarItem>
-                    <NavbarItem href='./'>О проекте</NavbarItem>
-                    <NavbarItem href='./faq'>Часто задаваемые вопросы</NavbarItem>
+                    <NavbarItem href='../'>Главная</NavbarItem>
+                    <NavbarItem href='../'>О проекте</NavbarItem>
+                    <NavbarItem href='../faq'>Часто задаваемые вопросы</NavbarItem>
                 </NavbarStart>
                 <NavbarEnd>
                     <Breadcrumb>
                         <ul>
-                            <BreadcrumbItem><a href='./login'>Вход</a></BreadcrumbItem>
-                            <BreadcrumbItem><a href='./register'>Регистрация</a></BreadcrumbItem>
+                            <BreadcrumbItem><a href='../login'>Вход</a></BreadcrumbItem>
+                            <BreadcrumbItem><a href='../register'>Регистрация</a></BreadcrumbItem>
                         </ul>
                     </Breadcrumb>
                     <span className="d-flex">
