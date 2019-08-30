@@ -3,7 +3,7 @@ import {Box, Image, Content, Icon, Columns, Column, Notification, Button, Contro
 
 import './group-block.css'
 
-const GroupBlock = () => (
+const GroupBlock = ({type, isClick}) => (
     <Box
         //isFullWidth="false"
         style={{"background" : "#FFFFFF",
@@ -12,10 +12,11 @@ const GroupBlock = () => (
             // "height": "414px",
             "width": "352px"}}>
         <div style={{}}>
+            <Content isHidden={(type === "2" || type === "3")}>
             <span>
                 <a href="http://localhost:3000/groups/"
                    className="group-name">
-                    Box
+                    Box {type}
                     <button className="btn btn-sm float-right">
                         <Icon
                               className="fa fa-arrow-right fa-lg"
@@ -24,6 +25,8 @@ const GroupBlock = () => (
                     </button>
                 </a>
             </span>
+            </Content>
+            <Content isHidden={(type === "2" || type === "3")}>
             <p style={{
                 "font-family": "Roboto",
                 "font-style": "normal",
@@ -36,6 +39,7 @@ const GroupBlock = () => (
             }}>
                 City
             </p>
+            </Content>
             <Content style={{
                 "height": "172px",
                 "display": "flex",
@@ -52,14 +56,16 @@ const GroupBlock = () => (
                     "letter-spacing": "0.25px",
 
                     "color": "#000000"
-                }}>“Привет! Мы ищем таких же увлеченных физикой студентов!”</p>
+                }}>“Привет! Мы ищем таких же увлеченных физикой студентов!” {type}</p>
             </Content>
 
+            <Content isHidden={(type === "2" || type === "3")}>
             <span>
                 <figure className="image is-64x64">
                     <img className="is-rounded" src="https://bulma.io/images/placeholders/64x64.png" alt="Image"/>
                 </figure>
             </span>
+            </Content>
             <Columns>
                 <Column>
                     <p className="group-block-column-name">
@@ -87,7 +93,9 @@ const GroupBlock = () => (
                 </Column>
             </Columns>
             <Control>
-                <Button style={{
+                <Button onClick={() => isClick()}
+                        isHidden={(type === "1" || type === "3" || type === "4")}
+                        style={{
                     "background": "#001AFF",
                     "border-radius": "4px",
                     "height": "54px",
@@ -102,7 +110,7 @@ const GroupBlock = () => (
                     "color": "#FFFFFF"
                 }}>Подать заявку</Button>
             </Control>
-            <div>
+            <Content isHidden={(type === "1" || type === "2" || type === "3")}>
                 <span style={{
                     "font-family": "Roboto",
                     "font-style": "normal",
@@ -115,7 +123,8 @@ const GroupBlock = () => (
 
                     "color": "#979797"
                 }}>Заявка подана</span>
-                <span className="float-right"  style={{
+                <span className="float-right"
+                      style={{
                     "font-family": "Roboto",
                     "font-style": "normal",
                     "font-weight": "500",
@@ -127,8 +136,9 @@ const GroupBlock = () => (
 
                     "color": "#0019FF"
                 }}>Отменить</span>
-            </div>
-            <div style={{
+            </Content>
+            <Content isHidden={(type === "1" || type === "2" || type === "4")}
+                 style={{
                 "font-family": "Roboto",
                 "font-style": "normal",
                 "font-weight": "500",
@@ -141,7 +151,7 @@ const GroupBlock = () => (
                 "color": "#C2C2C2"
             }}>
                 Ваша заявка на рассмотрении!
-            </div>
+            </Content>
         </div>
     </Box>
 );

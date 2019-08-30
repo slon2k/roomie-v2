@@ -4,7 +4,16 @@ import GroupBlock from "../components/group-block";
 import * as PropTypes from "prop-types";
 
 class GroupPage extends Component {
+    state = {
+        groupBlockType: "2"
+    };
+
+    isClick = () => {
+        this.setState({groupBlockType: "3"});
+    }
+
     render() {
+        const {groupBlockType} = this.state;
         let {id} = this.props;
         return (
             <Container>
@@ -12,7 +21,7 @@ class GroupPage extends Component {
                 <h4>{id}</h4>
                 <Columns>
                     <Column isSize="1/3">
-                        <GroupBlock/>
+                        <GroupBlock type={groupBlockType} isClick={this.isClick}/>
                     </Column>
                     <Column>
                         <div>
