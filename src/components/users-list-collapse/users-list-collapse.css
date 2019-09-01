@@ -1,0 +1,13 @@
+.collapse-header {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+    letter-spacing: 0.25px;
+
+    color: #000000;
+
+}

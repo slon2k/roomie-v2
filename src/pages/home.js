@@ -8,7 +8,11 @@ class HomePage extends Component {
     state = {
         groupBlockType: "1"
     };
+
+
     render() {
+        let {groups} = this.props;
+        console.log("home", groups);
         const {groupBlockType} = this.state;
         return (
             <Container style={{"background: background": "background: #E5E5E5"}}>
@@ -42,14 +46,7 @@ class HomePage extends Component {
                 }}>
                     Найдите подходящую группу
                 </p>
-                <GroupBlocks groups={[
-                    <GroupBlock type={groupBlockType}/>,
-                    <GroupBlock type={groupBlockType}/>,
-                    <GroupBlock type={groupBlockType}/>,
-                    <GroupBlock type={groupBlockType}/>,
-                    <GroupBlock type={groupBlockType}/>,
-                    <GroupBlock type={groupBlockType}/>]
-                }/>
+                <GroupBlocks type={groupBlockType} groups={groups}/>
             </Container>
         );
     }
