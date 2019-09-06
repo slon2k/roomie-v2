@@ -1,37 +1,88 @@
-import React from 'react';
-import {Breadcrumb, BreadcrumbItem, Navbar, NavbarItem, Icon, onClickNav, NavbarBurger, NavbarBrand, brand, NavbarMenu, NavbarStart, NavbarLink, NavbarDivider, NavbarDropdown, NavbarEnd, Field, Control, Button} from "bloomer"
+import React, {useState} from 'react';
+import {
+    Container,
+    Breadcrumb,
+    BreadcrumbItem,
+    Navbar,
+    NavbarItem,
+    Icon,
+    NavbarBurger,
+    NavbarBrand,
+    NavbarMenu,
+    NavbarStart,
+    Image,
+    NavbarLink,
+    NavbarDivider,
+    NavbarDropdown,
+    NavbarEnd,
+    Field,
+    Control,
+    Button
+} from "bloomer"
+import "./app-header.css"
+import {Link} from "react-router-dom";
 
 const AppHeader = () => {
 
+    const [isActive, setIsActive] = useState(false);
+    const [isAuthorized, setIsAuthorized] = useState(true)
+
     return (
-        <Navbar style={{ border: 'solid 1px #00D1B2', margin: '0' }}>
-            <NavbarBrand>
-                Roomie
-            </NavbarBrand>
-            <NavbarMenu>
-                <NavbarStart>
-                    <NavbarItem href='../'>Главная</NavbarItem>
-                    <NavbarItem href='../'>О проекте</NavbarItem>
-                    <NavbarItem href='../faq'>Часто задаваемые вопросы</NavbarItem>
-                </NavbarStart>
-                <NavbarEnd>
-                    <Breadcrumb>
-                        <ul>
-                            <BreadcrumbItem><a href='../login'>Вход</a></BreadcrumbItem>
-                            <BreadcrumbItem><a href='../register'>Регистрация</a></BreadcrumbItem>
-                        </ul>
-                    </Breadcrumb>
-                    <span className="d-flex">
-                        <figure className="image is-32x32">
-                            <img className="is-rounded" src="https://bulma.io/images/placeholders/32x32.png" alt="Image"/>
-                        </figure>
-                        <span>
-                            Камила К.
-                            <Icon className="fa fa-sign-out fa-lg" />
-                        </span>
-                    </span>
-                </NavbarEnd>
-            </NavbarMenu>
+        <Navbar>
+            <Container>
+                <NavbarBrand>
+                    <NavbarItem>
+                        <Link to="/">
+                            <div className={"logo"}>Roomie</div>
+                        </Link>
+                    </NavbarItem>
+                    <NavbarBurger isActive={isActive} onClick={() => setIsActive(!isActive)}/>
+                </NavbarBrand>
+                <NavbarMenu isActive={isActive} onClick={() => setIsActive(false)}>
+                    <NavbarStart>
+                        <NavbarItem>
+                            <Link to='/'>Главная</Link>
+                        </NavbarItem>
+                        <NavbarItem>
+                            <Link to='/'>О проекте</Link>
+                        </NavbarItem>
+                        <NavbarItem>
+                            <Link to='/faq'>Часто задаваемые вопросы</Link>
+                        </NavbarItem>
+                    </NavbarStart>
+                    {!isAuthorized &&
+                    <NavbarEnd>
+                        <NavbarItem>
+                            <Link to="/login" onClick={() => setIsAuthorized(!isAuthorized)}>Вход</Link>
+                        </NavbarItem>
+                        <NavbarItem>
+                            <Link to="/register">Регистрация</Link>
+                        </NavbarItem>
+                    </NavbarEnd>
+                    }
+                    {isAuthorized &&
+                    <NavbarEnd>
+                        <NavbarItem>
+                            <figure className="image is-32x32 avatar">
+                                <img className=" is-rounded" src="/img/01.png"
+                                     alt="Image"/>
+                            </figure>
+                            <Link to="/profile">
+                                <div>Камила К.</div>
+                            </Link>
+
+                        </NavbarItem>
+                        <NavbarItem>
+                            <Link to="/logoff" onClick={() => setIsAuthorized(false)}>
+                                <Icon className="fa fa-sign-out fa-lg"/>
+                            </Link>
+                        </NavbarItem>
+
+                    </NavbarEnd>
+                    }
+
+                </NavbarMenu>
+            </Container>
         </Navbar>
     );
 };

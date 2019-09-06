@@ -18,6 +18,8 @@ class GroupPage extends Component {
         const {groupBlockType} = this.state;
         console.log("group page", this.props);
         let {group} = this.props;
+        console.log("group page group", group);
+        console.log("group page group members", group.members);
         const {id} = group;
         return (
             <Container>
@@ -27,11 +29,11 @@ class GroupPage extends Component {
                     <Column isSize="1/3">
                         <GroupBlock type={groupBlockType} isClick={this.isClick} group={group}/>
                     </Column>
-                    <Column>
-                        <UsersListCollapse name="Участники"/>
-                        <UsersListCollapse name="Заявки на участие"/>
-                        <UsersListCollapse name="Опросы"/>
-                    </Column>
+                    {/*<Column>*/}
+                    {/*    <UsersListCollapse name="Участники" membersNumber={group.members.length} usersList={group.members}/>*/}
+                    {/*    <UsersListCollapse name="Заявки на участие" membersNumber={group.applications.length} usersList={group.applications}/>*/}
+                    {/*    <UsersListCollapse name="Опросы"/>*/}
+                    {/*</Column>*/}
                 </Columns>
             </Container>
         );

@@ -1,7 +1,7 @@
 import React from "react";
 import {Box, Content} from "bloomer";
 
-const UsersListItem = () => {
+const UsersListItem = ({user}) => {
     return (
         <Box isDisplay="flex">
             <figure className="image is-64x64">
@@ -19,7 +19,7 @@ const UsersListItem = () => {
                     "letter-spacing": "0.25px",
 
                     "color": "#000000"
-                }}>Name
+                }}>{user.name}
                 </div>
                 <div style={{
                     "font-family": "Roboto",
