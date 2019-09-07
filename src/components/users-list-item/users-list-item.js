@@ -2,6 +2,7 @@ import React from "react";
 import {Box, Content} from "bloomer";
 
 const UsersListItem = ({user}) => {
+    const {info, age, city} = user;
     return (
         <Box isDisplay="flex">
             <figure className="image is-64x64">
@@ -30,7 +31,7 @@ const UsersListItem = ({user}) => {
                     "letter-spacing": "0.25px",
 
                     "color": "#000000"
-                }}>age, city
+                }}>{age}, {city}
                 </div>
             </div>
             <div style={{
@@ -47,8 +48,7 @@ const UsersListItem = ({user}) => {
                         "letter-spacing": "0.25px",
 
                         "color": "#000000"
-                    }}>“Привет, я из Астаны, сейчас учусь в КБТУ, ищу
-                        сожительниц-девушек!”</p>
+                    }}>{info}</p>
                 </Content>
             </div>
         </Box>

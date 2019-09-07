@@ -5,6 +5,8 @@ import UsersListItem from "../users-list-item";
 import "./users-list-collapse.css";
 
 const UsersListCollapse = ({name, membersNumber, usersList}) => {
+    console.log("users-list-collapse ", name, membersNumber, usersList);
+
     const elements = usersList.map((item) => {
         const id = item.id;
         return (
@@ -13,8 +15,6 @@ const UsersListCollapse = ({name, membersNumber, usersList}) => {
             </li>
         );
     });
-
-    console.log("users-list-collapse ", usersList);
 
     return (
         <div>

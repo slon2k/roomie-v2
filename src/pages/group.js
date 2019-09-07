@@ -29,11 +29,10 @@ class GroupPage extends Component {
                     <Column isSize="1/3">
                         <GroupBlock type={groupBlockType} isClick={this.isClick} group={group}/>
                     </Column>
-                    {/*<Column>*/}
-                    {/*    <UsersListCollapse name="Участники" membersNumber={group.members.length} usersList={group.members}/>*/}
-                    {/*    <UsersListCollapse name="Заявки на участие" membersNumber={group.applications.length} usersList={group.applications}/>*/}
-                    {/*    <UsersListCollapse name="Опросы"/>*/}
-                    {/*</Column>*/}
+                    <Column>
+                        <UsersListCollapse name="Участники" membersNumber={group.members.length} usersList={group.members}/>
+                        <UsersListCollapse name="Заявки на участие" membersNumber={group.applications.length} usersList={group.applications}/>
+                    </Column>
                 </Columns>
             </Container>
         );

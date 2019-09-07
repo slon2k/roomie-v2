@@ -101,9 +101,18 @@ export default class Data {
             let peopleNumber = this._peopleNumbers[i];
             let free = this._free[i];
             let info = this._groupsInfo[i];
-            let members = this.getUsers(peopleNumber - free);
-            let applications = this.getUsers(peopleNumber);
-            let polls = this.getUsers(peopleNumber);
+            let members, applications, polls;
+            await this.getUsers(peopleNumber - free).then(result => {
+                members = result;
+            });
+            await this.getUsers(peopleNumber).then(result => {
+                applications = result;
+                polls = result;
+            });
+
+            //let members = this.getUsers(peopleNumber - free);
+            //let applications = this.getUsers(peopleNumber);
+            //let polls = this.getUsers(peopleNumber);
 
             let group = this.createGroup(id, name, city, rentalPeriod, peopleNumber, free, info, members, applications, polls);
             groups.push(group);
