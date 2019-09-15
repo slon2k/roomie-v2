@@ -13,7 +13,6 @@ class ProfilePage extends Component {
     };
 
     componentDidMount() {
-        console.log("profile cdm id", this.props.id);
         this.setState({loading: true})
         this.props.getUser({id: this.props.id})
             .then(user =>  this.setState({user: user, loading: false}));
@@ -22,7 +21,6 @@ class ProfilePage extends Component {
     render() {
         console.log("profile render", this.state);
         const {groupBlockType, user} = this.state;
-        const {id} = this.props;
         return (
             <Container>
                 {this.state.loading && <div>Loading ...</div> }
