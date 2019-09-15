@@ -23,7 +23,6 @@ export default class App extends Component {
     };
 
     onGroupsLoaded = (groups) => {
-        //console.log("APP onGroupsLoaded", groups);
         this.setState({
             groups: [...groups]
         });
@@ -32,22 +31,18 @@ export default class App extends Component {
     getGroups = () => {
         this.data.getGroups()
             .then(groups => {
-                //console.log("App getGroups", groups);
                 this.onGroupsLoaded(groups);
             })
-
             .catch(this.onError)
     };
 
     getUser = ({id}) => {
         console.log("app check", id);
-        this.data.getUser({id: id}).then(res => console.log("app getUser", res))
+        this.data.getUser({id}).then(res => console.log("app getUser", res))
             .catch(this.onError);
     };
 
     componentDidMount() {
-        //setTimeout('', 2000);
-        //console.log("APP component did mount");
         this.getGroups();
     }
 
@@ -98,7 +93,7 @@ export default class App extends Component {
                                render = {({match}) =>
                                    <ProfilePage
                                        id={match.params.id}
-                                       getUser = {this.getUser}
+                                       getUser = {this.data.getUser}
                                        //user={this.getUser(match.params.id)}
                                    />
                                }

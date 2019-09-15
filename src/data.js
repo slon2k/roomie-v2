@@ -141,13 +141,12 @@ export default class Data {
         });
     };
 
-    getUser = async ({id}) => {
-        //let groups = await this.getGroups();
-        console.log("data check", id);
+    getUser = ({id}) => {
         const a = this.createUser(id, this._users[id], this._age[id], this._cities[id],
             this._usersInfo[id], this._birthDates[id], this._univercities[id], this._specialities[id],
             this._languages[id], this._badHabits[id], this._phoneNumbers[id]);
-        console.log("data getUser", a);
-        return a;
+        return new Promise(resolve => {
+            setTimeout( () => {resolve(a)},1000)
+        });
     }
 }

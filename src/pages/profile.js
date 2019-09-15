@@ -4,31 +4,29 @@ import ProfileBlock from '../components/profile-block';
 import GroupBlocks from "../components/group-blocks";
 import GroupBlock from "../components/group-block";
 import {Container} from "bloomer";
-import * as PropTypes from "prop-types";
 
 class ProfilePage extends Component {
     state = {
+        loading: false,
         groupBlockType: "4",
         user: {}
     };
 
     componentDidMount() {
-        //console.log("profile", this.props);
-        //console.log("profile2", this.props.getUser(1));
         console.log("profile cdm id", this.props.id);
-        const user = this.props.getUser({id: this.props.id});
-        this.setState({user: user});
+        this.setState({loading: true})
+        this.props.getUser({id: this.props.id})
+            .then(user =>  this.setState({user: user, loading: false}));
     }
 
     render() {
         console.log("profile render", this.state);
         const {groupBlockType, user} = this.state;
-        let {id} = this.props;
+        const {id} = this.props;
         return (
             <Container>
-                <h3>Profile</h3>
-                <h4>{id}</h4>
-                <ProfileBlock user={user}/>
+                {this.state.loading && <div>Loading ...</div> }
+                {!this.state.loading && <ProfileBlock user={user}/>}
                 <p style={{
                     "font-family": "Roboto",
                     "font-style": "normal",
@@ -53,7 +51,5 @@ class ProfilePage extends Component {
         );
     }
 }
-
-ProfilePage.propTypes = {id: PropTypes.any}
 
 export default ProfilePage;

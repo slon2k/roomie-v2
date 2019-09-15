@@ -13,12 +13,11 @@ class ProfileBlock extends Component {
         let {isBoxBottomHidden} = this.state;
         let {user} = this.props;
         return (
-            <div>
-                ProfileBlock
+            <section>
                 <div className="box">
                     <article className="media">
                         <div className="media-left">
-                            <figure className="image is-192x192">
+                            <figure className="image is-64x64">
                                 <img class="is-rounded" src={user.imgPath}
                                      alt="Image"/>
                             </figure>
@@ -145,7 +144,7 @@ class ProfileBlock extends Component {
                         </Container>
                     </article>
                 </div>
-            </div>
+            </section>
         );
     }
 }
