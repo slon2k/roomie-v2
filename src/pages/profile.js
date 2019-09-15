@@ -8,16 +8,27 @@ import * as PropTypes from "prop-types";
 
 class ProfilePage extends Component {
     state = {
-        groupBlockType: "4"
+        groupBlockType: "4",
+        user: {}
     };
+
+    componentDidMount() {
+        //console.log("profile", this.props);
+        //console.log("profile2", this.props.getUser(1));
+        console.log("profile cdm id", this.props.id);
+        const user = this.props.getUser({id: this.props.id});
+        this.setState({user: user});
+    }
+
     render() {
-        const {groupBlockType} = this.state;
+        console.log("profile render", this.state);
+        const {groupBlockType, user} = this.state;
         let {id} = this.props;
         return (
             <Container>
                 <h3>Profile</h3>
                 <h4>{id}</h4>
-                <ProfileBlock/>
+                <ProfileBlock user={user}/>
                 <p style={{
                     "font-family": "Roboto",
                     "font-style": "normal",

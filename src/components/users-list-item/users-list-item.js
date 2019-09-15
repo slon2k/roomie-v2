@@ -1,14 +1,17 @@
 import React from "react";
 import {Box, Content} from "bloomer";
+import {Link} from "react-router-dom";
 
 const UsersListItem = ({user}) => {
-    const {info, age, city} = user;
+    const {userInfo, age, userCity, id} = user;
     return (
-        <Box isDisplay="flex">
+        <Content isDisplay="flex">
             <figure className="image is-64x64">
-                <img className="is-rounded"
+                <Link to={`/profile/${id}`}>
+                    <img className="is-rounded"
                      src="https://bulma.io/images/placeholders/64x64.png"
                      alt="Image"/>
+                </Link>
             </figure>
             <div style={{"width": "225px"}}>
                 <div style={{
@@ -31,7 +34,7 @@ const UsersListItem = ({user}) => {
                     "letter-spacing": "0.25px",
 
                     "color": "#000000"
-                }}>{age}, {city}
+                }}>{age}, {userCity}
                 </div>
             </div>
             <div style={{
@@ -48,10 +51,10 @@ const UsersListItem = ({user}) => {
                         "letter-spacing": "0.25px",
 
                         "color": "#000000"
-                    }}>{info}</p>
+                    }}>{userInfo}</p>
                 </Content>
             </div>
-        </Box>
+        </Content>
     );
 };
 

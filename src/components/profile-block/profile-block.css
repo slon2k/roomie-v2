@@ -1,5 +1,4 @@
 .column2 {
-    text-transform: uppercase;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -9,6 +8,7 @@
     letter-spacing: 0.892857px;
 
     color: #000000;
+
 }
 
 .column1 {

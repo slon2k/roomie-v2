@@ -5,9 +5,7 @@ import {Link} from 'react-router-dom';
 import './group-block.css'
 
 const GroupBlock = ({type, isClick, group}) => {
-    console.log("Group: ", group);
-    const {id, name, city, rentalPeriod, peopleNumber, free, info} = group;
-    console.log("group block", group);
+    const {id, name, city, rentalPeriod, peopleNumber, free, groupInfo} = group;
     return (
         <Box
             //isFullWidth="false"
@@ -22,7 +20,6 @@ const GroupBlock = ({type, isClick, group}) => {
                 <Content isHidden={(type === "2" || type === "3")}>
                 <span>
                     <Link to={`/group/${id}`}
-                          group={group}
                           className="group-name">
                         {name} {type}
                         <button className="btn btn-sm float-right">
@@ -64,7 +61,7 @@ const GroupBlock = ({type, isClick, group}) => {
                         "letter-spacing": "0.25px",
 
                         "color": "#000000"
-                    }}>"{info}" {type}</p>
+                    }}>"{groupInfo}"</p>
                 </Content>
 
                 <Content isHidden={(type === "2" || type === "3")}>

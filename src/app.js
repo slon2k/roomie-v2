@@ -23,30 +23,46 @@ export default class App extends Component {
     };
 
     onGroupsLoaded = (groups) => {
+        //console.log("APP onGroupsLoaded", groups);
         this.setState({
             groups: [...groups]
         });
     };
 
     getGroups = () => {
-        this.data.getGroups().then(this.onGroupsLoaded).catch(this.onError)
+        this.data.getGroups()
+            .then(groups => {
+                //console.log("App getGroups", groups);
+                this.onGroupsLoaded(groups);
+            })
+
+            .catch(this.onError)
+    };
+
+    getUser = ({id}) => {
+        console.log("app check", id);
+        this.data.getUser({id: id}).then(res => console.log("app getUser", res))
+            .catch(this.onError);
     };
 
     componentDidMount() {
+        //setTimeout('', 2000);
+        //console.log("APP component did mount");
         this.getGroups();
     }
 
-    getGroupById = (groups, id) => {
+
+    getGroupById = (id) => {
+        //console.log("APP STATE: ", this.state);
+        let {groups} = this.state;
         const index = groups.findIndex(el => el.id === id);
         if (index > -1)
             return groups[index];
         return null;
-    }
+    };
 
     render() {
         let {groups} = this.state;
-        console.log("tut", groups);
-        console.log(this.getGroupById(groups, 101));
         return (
             <Router>
                 <div>
@@ -61,11 +77,13 @@ export default class App extends Component {
                         />
                         <Route exact path={'/faq'} component={FAQPage}/>
                         <Route exact path={'/group/:id'}
-                               render = {({match}) =>
-                                   <GroupPage
+                               render ={({match}) => {
+                                   //console.log("APP", this.getGroupById(parseInt(match.params.id)));
+                                   return <GroupPage
                                        id={match.params.id}
-                                       group={this.getGroupById(groups, parseInt(match.params.id))}
+                                       group={this.getGroupById(parseInt(match.params.id))}
                                    />
+                               }
                                }
                         />
                         <Route exact path={'/login'} component={LoginPage}/>
@@ -80,6 +98,8 @@ export default class App extends Component {
                                render = {({match}) =>
                                    <ProfilePage
                                        id={match.params.id}
+                                       getUser = {this.getUser}
+                                       //user={this.getUser(match.params.id)}
                                    />
                                }
                         />

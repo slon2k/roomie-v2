@@ -15,11 +15,11 @@ class GroupPage extends Component {
     };
 
     render() {
+
         const {groupBlockType} = this.state;
-        console.log("group page", this.props);
         let {group} = this.props;
-        console.log("group page group", group);
-        console.log("group page group members", group.members);
+        console.log("group page props ", this.props);
+        console.log("group page", group);
         const {id} = group;
         return (
             <Container>

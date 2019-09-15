@@ -1,3 +1,6 @@
+import React from 'react';
+import axios from 'axios';
+
 export default class Data {
     _users = [
         "Катя Смирнова",
@@ -7,14 +10,7 @@ export default class Data {
         "Катя Смирнова",
         "Асель Муратова",
     ];
-    _age = [
-        "20 лет",
-        "19 лет",
-        "25 лет",
-        "27 лет",
-        "25 лет",
-        "27 лет"
-    ];
+    _age = [20, 21, 22, 23, 24, 25];
     _groupNames = [
         "Студенты-физики",
         "Студенты-физики",
@@ -37,6 +33,7 @@ export default class Data {
         "Люблю “Очень странные дела”, фотографировать, учу испанский.",
         "Люблю “Очень странные дела”, фотографировать, учу испанский."
     ];
+
     _groupsInfo = [
         "Привет! Мы ищем таких же увлеченных физикой студентов!",
         "Мы ищем студентов МУИТ, хотим снять квартитру недалеко от нашего университета. У нас есть собака, и мы не против других питомцев :)",
@@ -49,75 +46,108 @@ export default class Data {
     _imgPath = "https://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg";
     _rentalPeriods = [1, 3, 6, 9, 12, 3];
     _peopleNumbers = [2, 3, 4, 4, 4, 3];
-
-    createGroup = (id, name, city, rentalPeriod, peopleNumber, free, info, members, applications, polls) => {
-        return {
-            id: id,
-            name: name,
-            city: city,
-            rentalPeriod: rentalPeriod,
-            peopleNumber: peopleNumber,
-            free: free,
-            info: info,
-            members: members,
-            applications: applications,
-            polls: polls
-        };
-    };
-
-    createUser = (id, name, age, city, info) => {
+    //
+    // createGroup = (id, name, city, rentalPeriod, peopleNumber, free, info, members, applications, polls) => {
+    //     return {
+    //         id: id,
+    //         name: name,
+    //         city: city,
+    //         rentalPeriod: rentalPeriod,
+    //         peopleNumber: peopleNumber,
+    //         free: free,
+    //         info: info,
+    //         members: members,
+    //         applications: applications,
+    //         polls: polls
+    //     };
+    // };
+    //
+    _univercities = ["AlmaU", "Narxoz", "SDU", "MUIT", "KazNU", "KBTU"];
+    _specialities = ["биолог", "физик", "математик", "геолог", "химик", "фезмот"];
+    _languages = [["kz", "ru"], ["fr", "kx"], ["en", "gr"], ["ru"], ["sp"], ["aaaaaaa"]];
+    _badHabits = [["курение", "алкоголь"], ["курение"], ["алкоголь"], [], [], []];
+    _birthDates = ["4.07.1999", "4.07.1999", "4.07.1999", "4.07.1999", "4.07.1999", "4.07.1999"];
+    _phoneNumbers = ["+7 777 777 77 77", "+7 777 777 77 77", "+7 777 777 77 77", "+7 777 777 77 77", "+7 777 777 77 77", "+7 777 777 77 77"];
+    createUser = (id, name, age, city, info, birthDate, university, specialty, languages, badHabits, phoneNumber, groups) => {
         return {
             id: id,
             name: name,
             age: age,
             city: city,
             info: info,
-            imgPath: this._imgPath
+            imgPath: this._imgPath,
+            birthDate: birthDate,
+            university: university,
+            specialty: specialty,
+            languages: languages,
+            badHabits: badHabits,
+            phoneNumber:phoneNumber
         };
     };
+    //
+    // getUsers = async () => {
+    //     let users = [];
+    //     for (let i = 0; i < 6; i++) {
+    //         let userId = i + 200;
+    //         let userName = this._users[i];
+    //         let age = this._age[i];
+    //         let userCity = this._cities[i];
+    //         let userInfo = this._usersInfo[i];
+    //
+    //         let user = this.createUser(userId, userName, age, userCity, userInfo);
+    //         users.push(user);
+    //     }
+    //     return users;
+    // };
+    //
+    // getGroups = async () => {
+    //     const groups = [];
+    //     for (let i = 0; i < 6; i++) {
+    //         let id = i + 100;
+    //         let name = this._groupNames[i];
+    //         let city = this._cities[i];
+    //         let rentalPeriod = this._rentalPeriods[i];
+    //         let peopleNumber = this._peopleNumbers[i];
+    //         let free = this._free[i];
+    //         let info = this._groupsInfo[i];
+    //         let members, applications, polls;
+    //         await this.getUsers(peopleNumber - free).then(result => {
+    //             members = result;
+    //         });
+    //         await this.getUsers(peopleNumber).then(result => {
+    //             applications = result;
+    //             polls = result;
+    //         });
+    //
+    //         //let members = this.getUsers(peopleNumber - free);
+    //         //let applications = this.getUsers(peopleNumber);
+    //         //let polls = this.getUsers(peopleNumber);
+    //
+    //         let group = this.createGroup(id, name, city, rentalPeriod, peopleNumber, free, info, members, applications, polls);
+    //         groups.push(group);
+    //     }
+    //
+    //     return groups;
+    // }
 
-    getUsers = async () => {
-        let users = [];
-        for (let i = 0; i < 6; i++) {
-            let userId = i + 200;
-            let userName = this._users[i];
-            let age = this._age[i];
-            let userCity = this._cities[i];
-            let userInfo = this._usersInfo[i];
-
-            let user = this.createUser(userId, userName, age, userCity, userInfo);
-            users.push(user);
-        }
-        return users;
+    getGroups = () => {
+        return fetch('http://localhost:9200/allgroups')
+            .then(res => res.json())
+            .then(res => {
+            //console.log("res " + JSON.stringify(res));
+            const groups = res;
+            //console.log("fourps = " + JSON.stringify(groups));
+            return groups;
+        });
     };
 
-    getGroups = async () => {
-        const groups = [];
-        for (let i = 0; i < 6; i++) {
-            let id = i + 100;
-            let name = this._groupNames[i];
-            let city = this._cities[i];
-            let rentalPeriod = this._rentalPeriods[i];
-            let peopleNumber = this._peopleNumbers[i];
-            let free = this._free[i];
-            let info = this._groupsInfo[i];
-            let members, applications, polls;
-            await this.getUsers(peopleNumber - free).then(result => {
-                members = result;
-            });
-            await this.getUsers(peopleNumber).then(result => {
-                applications = result;
-                polls = result;
-            });
-
-            //let members = this.getUsers(peopleNumber - free);
-            //let applications = this.getUsers(peopleNumber);
-            //let polls = this.getUsers(peopleNumber);
-
-            let group = this.createGroup(id, name, city, rentalPeriod, peopleNumber, free, info, members, applications, polls);
-            groups.push(group);
-        }
-
-        return groups;
+    getUser = async ({id}) => {
+        //let groups = await this.getGroups();
+        console.log("data check", id);
+        const a = this.createUser(id, this._users[id], this._age[id], this._cities[id],
+            this._usersInfo[id], this._birthDates[id], this._univercities[id], this._specialities[id],
+            this._languages[id], this._badHabits[id], this._phoneNumbers[id]);
+        console.log("data getUser", a);
+        return a;
     }
 }

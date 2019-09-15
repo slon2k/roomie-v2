@@ -12,7 +12,6 @@ class HomePage extends Component {
 
     render() {
         let {groups} = this.props;
-        console.log("home", groups);
         const {groupBlockType} = this.state;
         return (
             <Container style={{"background: background": "background: #E5E5E5"}}>
