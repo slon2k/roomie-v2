@@ -1,9 +1,24 @@
 import React, {Component} from 'react';
-import {Columns, Column, Table, Icon, Container} from "bloomer";
+import { CSSTransition } from "react-transition-group";
+import { Icon } from "bloomer";
 import { withHelpersModifiers  } from 'bloomer';
 
 import './profile-block.css';
 import Avatar from "../avatar";
+import {ageToString} from "../../utils";
+
+const userProp = (key, value) => {
+    return(
+        <div className="profile-info-prop">
+            <div className="profile-info-key">
+                {key}
+            </div>
+            <div className="profile-info-value">
+                {value}
+            </div>
+        </div>
+    )
+}
 
 class ProfileBlock extends Component {
     state = {
@@ -14,11 +29,49 @@ class ProfileBlock extends Component {
         let {isBoxBottomHidden} = this.state;
         let {user} = this.props;
         return (
-            <section className="profile">
-                <div className="box">
-                    <Avatar image={user.imgPath} size={200}/>
+            <div className="profile">
+
+                <div className={ isBoxBottomHidden? "profile-dropdown-button" : "profile-dropdown-button profile-dropdown-button_open"}
+                     onClick={() => this.setState({isBoxBottomHidden: !isBoxBottomHidden})}
+                >
+                    <Icon className="fa fa-arrow-circle-down fa-lg" />
                 </div>
-            </section>
+                <div className="box profile-block">
+                    <div className="profile-picture">
+                        <Avatar image={user.imgPath} size={200}/>
+                    </div>
+                    <div className="profile-info">
+                        <div className="profile-info-name">{user.name}</div>
+                        <div className="profile-info-age">{ageToString(user.age)}</div>
+                        {userProp('Родная страна', 'Казахстан')}
+                        {userProp('Родной город', user.city)}
+                        <CSSTransition
+                            in={!isBoxBottomHidden}
+                            name="example"
+                            timeout={700}
+                            appear={true}
+                        >
+                            <div>
+                                {!isBoxBottomHidden &&
+                                <section >
+                                    {userProp('Родной город', user.city)}
+                                    {userProp('Родной город', user.city)}
+                                    {userProp('Родной город', user.city)}
+                                    {userProp('Родной город', user.city)}
+                                    {userProp('Родной город', user.city)}
+                                    {userProp('Родной город', user.city)}
+                                    {userProp('Родной город', user.city)}
+                                    {userProp('Родной город', user.city)}
+                                </section>
+                                }
+                            </div>
+                        </CSSTransition>
+                    </div>
+                </div>
+                <div>
+                    Transition
+                </div>
+            </div>
         );
     }
 }

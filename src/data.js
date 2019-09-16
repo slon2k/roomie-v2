@@ -146,7 +146,7 @@ export default class Data {
             this._usersInfo[id], this._birthDates[id], this._univercities[id], this._specialities[id],
             this._languages[id], this._badHabits[id], this._phoneNumbers[id]);
         return new Promise(resolve => {
-            setTimeout( () => {resolve(a)},1000)
+            setTimeout( () => {resolve(a)},100)
         });
     }
 }

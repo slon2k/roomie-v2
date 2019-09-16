@@ -23,23 +23,10 @@ class ProfilePage extends Component {
         const {groupBlockType, user} = this.state;
         return (
             <Container>
-                {this.state.loading && <div>Loading ...</div> }
-                {!this.state.loading && <ProfileBlock user={user}/>}
-                <p style={{
-                    "font-family": "Roboto",
-                    "font-style": "normal",
-                    "font-weight": "bold",
-                    "font-size": "50px",
-                    "line-height": "64px",
-                    /* identical to box height, or 128% */
-
-                    "text-align": "center",
-                    "letter-spacing": "0.892857px",
-
-                    "color": "#292A34"
-                }}>
+                {this.state.loading ? <div>Loading ...</div> : <ProfileBlock user={user}/>}
+                <h3>
                     Мои группы
-                </p>
+                </h3>
                 <GroupBlocks groups={[
                     <GroupBlock type={groupBlockType}/>,
                     <GroupBlock type={groupBlockType}/>,
