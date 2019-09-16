@@ -22,11 +22,12 @@ const userProp = (key, value) => {
 
 class ProfileBlock extends Component {
     state = {
-        isBoxBottomHidden: true
+        isBoxBottomHidden: true,
+        transition: false
     };
 
     render() {
-        let {isBoxBottomHidden} = this.state;
+        let {isBoxBottomHidden, transition} = this.state;
         let {user} = this.props;
         return (
             <div className="profile">
@@ -47,12 +48,13 @@ class ProfileBlock extends Component {
                         {userProp('Родной город', user.city)}
                         <CSSTransition
                             in={!isBoxBottomHidden}
-                            name="example"
-                            timeout={700}
-                            appear={true}
+                            timeout={500}
+                            classNames="my-node"
+                            unmountOnExit
+                            appear
                         >
                             <div>
-                                {!isBoxBottomHidden &&
+
                                 <section >
                                     {userProp('Родной город', user.city)}
                                     {userProp('Родной город', user.city)}
@@ -63,14 +65,27 @@ class ProfileBlock extends Component {
                                     {userProp('Родной город', user.city)}
                                     {userProp('Родной город', user.city)}
                                 </section>
-                                }
+
                             </div>
                         </CSSTransition>
                     </div>
                 </div>
-                <div>
-                    Transition
-                </div>
+                <button onClick={() => this.setState({transition: !transition})}>on/off</button>
+                <CSSTransition
+                    in={transition}
+                    timeout={500}
+                    classNames="my-node"
+                    unmountOnExit
+                    appear
+                >
+                    <div>
+
+                        <div style={{width: "100px"}} key={"1"}>
+                            Transition
+                        </div>
+
+                    </div>
+                </CSSTransition>
             </div>
         );
     }
