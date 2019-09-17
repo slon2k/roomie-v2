@@ -22,20 +22,18 @@ const userProp = (key, value) => {
 
 class ProfileBlock extends Component {
     state = {
-        isBoxBottomHidden: true,
-        transition: false
+        showDetails: false,
     };
 
     render() {
-        let {isBoxBottomHidden, transition} = this.state;
+        let {showDetails} = this.state;
         let {user} = this.props;
         return (
             <div className="profile">
-
-                <div className={ isBoxBottomHidden? "profile-dropdown-button" : "profile-dropdown-button profile-dropdown-button_open"}
-                     onClick={() => this.setState({isBoxBottomHidden: !isBoxBottomHidden})}
+                <div className="profile-edit-button" ></div>
+                <div className={ showDetails ? "profile-dropdown-button profile-dropdown-button--open" : "profile-dropdown-button" }
+                     onClick={() => this.setState({showDetails: !showDetails})}
                 >
-                    <Icon className="fa fa-arrow-circle-down fa-lg" />
                 </div>
                 <div className="box profile-block">
                     <div className="profile-picture">
@@ -47,45 +45,24 @@ class ProfileBlock extends Component {
                         {userProp('Родная страна', 'Казахстан')}
                         {userProp('Родной город', user.city)}
                         <CSSTransition
-                            in={!isBoxBottomHidden}
-                            timeout={500}
-                            classNames="my-node"
+                            in={showDetails}
+                            timeout={300}
+                            classNames="show-details"
                             unmountOnExit
                             appear
                         >
-                            <div>
-
-                                <section >
-                                    {userProp('Родной город', user.city)}
-                                    {userProp('Родной город', user.city)}
-                                    {userProp('Родной город', user.city)}
-                                    {userProp('Родной город', user.city)}
-                                    {userProp('Родной город', user.city)}
-                                    {userProp('Родной город', user.city)}
-                                    {userProp('Родной город', user.city)}
-                                    {userProp('Родной город', user.city)}
-                                </section>
-
-                            </div>
+                            <section >
+                                {userProp('Дата рождения', user.birthDate)}
+                                {userProp('Университет', user.university)}
+                                {userProp('Специальность', user.specialty)}
+                                {userProp('Языки', user.languages)}
+                                {userProp('Вредные привычки', user.badHabits)}
+                                {userProp('Телефон', user.phoneNumber)}
+                                {userProp('О себе', user.info)}
+                            </section>
                         </CSSTransition>
                     </div>
                 </div>
-                <button onClick={() => this.setState({transition: !transition})}>on/off</button>
-                <CSSTransition
-                    in={transition}
-                    timeout={500}
-                    classNames="my-node"
-                    unmountOnExit
-                    appear
-                >
-                    <div>
-
-                        <div style={{width: "100px"}} key={"1"}>
-                            Transition
-                        </div>
-
-                    </div>
-                </CSSTransition>
             </div>
         );
     }

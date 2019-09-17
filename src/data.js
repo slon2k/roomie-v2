@@ -1,5 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import user1 from "./images/user1.png"
+import user2 from "./images/user2.png"
+import user3 from "./images/user3.png"
+import user4 from "./images/user4.png"
+
 
 export default class Data {
     _users = [
@@ -43,7 +48,8 @@ export default class Data {
         "Мы ищем студентов МУИТ, хотим снять квартитру недалеко от нашего университета. У нас есть собака, и мы не против других питомцев :)"
     ];
     _free = [0, 2, 2, 1, 0, 1];
-    _imgPath = "https://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg";
+    _imgPath = user1;
+    //_imgPath = "https://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg";
     _rentalPeriods = [1, 3, 6, 9, 12, 3];
     _peopleNumbers = [2, 3, 4, 4, 4, 3];
     //
