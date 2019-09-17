@@ -20,8 +20,8 @@
     text-decoration: none;
 }
 
-.avatar {
-    margin-right: 10px;
+.navbar .avatar {
+    margin-right: 20px;
 }
 
 .logout-button {

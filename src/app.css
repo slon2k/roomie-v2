@@ -2,3 +2,28 @@
     padding: 90px 0px;
     background-color: #E5E5E5;
 }
+
+.title2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    color: #292A34;
+}
+
+.title-groups {
+    position: relative;
+    margin: 100px 0;
+}
+
+.title-groups::before {
+    display: block;
+    content: "";
+    width: 48px;
+    height: 1px;
+    border-bottom: solid #0019FF 3px;
+    position: absolute;
+    top: -20px;
+    left: calc(50% - 24px);
+}

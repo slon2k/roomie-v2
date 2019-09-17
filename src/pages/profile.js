@@ -24,9 +24,9 @@ class ProfilePage extends Component {
             <div className="page">
                 <Container>
                     {this.state.loading ? <div>Loading ...</div> : <ProfileBlock user={user}/>}
-                    <h3>
-                        Мои группы
-                    </h3>
+
+                    <h3 className="title2 title-groups">Мои группы</h3>
+
                     <GroupBlocks groups={[
                         <GroupBlock type={groupBlockType}/>,
                         <GroupBlock type={groupBlockType}/>,

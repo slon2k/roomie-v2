@@ -1,45 +1,55 @@
-.search-input {
-    width: auto;
-    flex-grow: 1;
-    margin-right: 3px;
+.group-block {
+    display: flex;
+    flex-direction: column;
+    min-height: 478px;
 }
 
-.group-name {
-    font-family: Roboto;
+.group-block-header {
+    position: relative;
+}
+
+.group-block-title {
+    font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
-    /* identical to box height */
-
-    letter-spacing: 0.25px;
-
     color: #000000;
 }
 
-.group-city {
-    font-family: Roboto;
+.group-block-members {
+    display: flex
+}
+
+.group-block-members .avatar {
+    margin-right: 15px;
+}
+
+.group-block-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.group-block-city {
+    font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
-    letter-spacing: 0.25px;
-
     color: #3F3F3F;
 }
 
-group-about {
+.group-block-about {
     font-family: Roboto;
     font-style: italic;
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
-    letter-spacing: 0.25px;
-
-    position: absolute;
-    width: 279px;
-    left: 569px;
     color: #000000;
+    flex: 1;
+    display: flex;
+    align-items: center
 }
 
 .group-block-column-name {
@@ -55,6 +65,8 @@ group-about {
     color: #C2C2C2;
 }
 
+
+
 .group-block-column-data {
     font-family: Roboto;
     font-style: normal;
@@ -66,4 +78,19 @@ group-about {
     letter-spacing: 0.25px;
 
     color: #000000;
+}
+
+.search-input {
+    width: auto;
+    flex-grow: 1;
+    margin-right: 3px;
+}
+
+.arrow-right {
+    background-image: url("./../../images/arrow-right.png");
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }

@@ -38,7 +38,6 @@ export default class App extends Component {
     };
 
     getUser = ({id}) => {
-        console.log("app check", id);
         this.data.getUser({id}).then(res => console.log("app getUser", res))
             .catch(this.onError);
     };
@@ -47,9 +46,7 @@ export default class App extends Component {
         this.getGroups();
     }
 
-
     getGroupById = (id) => {
-        //console.log("APP STATE: ", this.state);
         let {groups} = this.state;
         const index = groups.findIndex(el => el.id === id);
         if (index > -1)
