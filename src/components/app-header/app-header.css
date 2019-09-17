@@ -23,3 +23,9 @@
 .avatar {
     margin-right: 10px;
 }
+
+.logout-button {
+    background-image: url("./../../images/logout.png");
+    width: 20px;
+    height: 20px;
+}

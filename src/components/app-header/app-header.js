@@ -21,6 +21,9 @@ import {
 } from "bloomer"
 import "./app-header.css"
 import {Link} from "react-router-dom";
+import Avatar from "../avatar";
+import user1 from "../../images/user1.png";
+
 
 const AppHeader = () => {
 
@@ -63,18 +66,14 @@ const AppHeader = () => {
                     {isAuthorized &&
                     <NavbarEnd>
                         <NavbarItem>
-                            <figure className="image is-32x32 avatar">
-                                <img className=" is-rounded" src="/img/01.png"
-                                     alt="Image"/>
-                            </figure>
+                            <Avatar image={user1} size={32} />
                             <Link to="/profile">
                                 <div>Камила К.</div>
                             </Link>
-
                         </NavbarItem>
                         <NavbarItem>
                             <Link to="/logoff" onClick={() => setIsAuthorized(false)}>
-                                <Icon className="fa fa-sign-out fa-lg"/>
+                                <div className="logout-button"></div>
                             </Link>
                         </NavbarItem>
 

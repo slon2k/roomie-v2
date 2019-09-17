@@ -19,20 +19,21 @@ class ProfilePage extends Component {
     }
 
     render() {
-        console.log("profile render", this.state);
         const {groupBlockType, user} = this.state;
         return (
-            <Container>
-                {this.state.loading ? <div>Loading ...</div> : <ProfileBlock user={user}/>}
-                <h3>
-                    Мои группы
-                </h3>
-                <GroupBlocks groups={[
-                    <GroupBlock type={groupBlockType}/>,
-                    <GroupBlock type={groupBlockType}/>,
-                    <GroupBlock type={groupBlockType}/>]
-                }/>
-            </Container>
+            <div className="page">
+                <Container>
+                    {this.state.loading ? <div>Loading ...</div> : <ProfileBlock user={user}/>}
+                    <h3>
+                        Мои группы
+                    </h3>
+                    <GroupBlocks groups={[
+                        <GroupBlock type={groupBlockType}/>,
+                        <GroupBlock type={groupBlockType}/>,
+                        <GroupBlock type={groupBlockType}/>]
+                    }/>
+                </Container>
+            </div>
         );
     }
 }
