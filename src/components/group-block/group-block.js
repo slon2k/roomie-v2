@@ -34,6 +34,19 @@ const membersList = () => {
     )
 }
 
+const infoItem = (title, value) => {
+    return (
+        <div className="group-block-info-item">
+            <div className="group-block-info-title">
+                {title}
+            </div>
+            <div className="group-block-info-value">
+                {value}
+            </div>
+        </div>
+    )
+}
+
 
 const GroupBlock = ({type, isClick, group}) => {
     const {id, name, city, rentalPeriod, peopleNumber, free, groupInfo} = group;
@@ -51,6 +64,11 @@ const GroupBlock = ({type, isClick, group}) => {
                     <p>“Привет! Мы ищем таких же увлеченных физикой студентов!</p>
                 </div>
                 { membersList() }
+                <div className="group-block-info">
+                    {infoItem("Период аренды", "1 год")}
+                    {infoItem("Всего", "6 мест ")}
+                    {infoItem("Осталось", "2 места")}
+                </div>
 
                 <footer className="group-block-controls">
                     <Button disabled>Заявка подана</Button>

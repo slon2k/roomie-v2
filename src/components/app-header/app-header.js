@@ -67,7 +67,7 @@ const AppHeader = () => {
                     <NavbarEnd>
                         <NavbarItem>
                             <Avatar image={user1} size={32} />
-                            <Link to="/profile">
+                            <Link to="/profile/1">
                                 <div>Камила К.</div>
                             </Link>
                         </NavbarItem>

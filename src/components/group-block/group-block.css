@@ -31,14 +31,6 @@
     justify-content: space-around;
 }
 
-.group-block-city {
-    font-family: Roboto, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    color: #3F3F3F;
-}
 
 .group-block-about {
     font-family: Roboto;
@@ -52,32 +44,38 @@
     align-items: center
 }
 
-.group-block-column-name {
-    font-family: Roboto;
+.group-block-info {
+    display: flex;
+    margin-top: 20px;
+}
+
+.group-block-info-item {
+    flex: 1;
+}
+
+.group-block-info-title {
+    font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 10px;
-    line-height: 12px;
-    /* identical to box height */
-
-    letter-spacing: 0.25px;
-
     color: #C2C2C2;
+    text-transform: uppercase;
 }
 
-
-
-.group-block-column-data {
-    font-family: Roboto;
+.group-block-info-value {
+    font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    line-height: 21px;
-    /* identical to box height */
+}
 
-    letter-spacing: 0.25px;
-
-    color: #000000;
+.group-block-city {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #3F3F3F;
 }
 
 .search-input {
