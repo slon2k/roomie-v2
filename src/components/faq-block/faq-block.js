@@ -5,7 +5,7 @@ import FaqBlockItem from "./faq-block-item";
 const FaqBlock = ({questions}) => {
     return(
         <ul>
-            {questions.map(item => <FaqBlockItem item={item}/>)}
+            {questions.map(item => <FaqBlockItem key={item.id} item={item}/>)}
         </ul>
     )
 }
