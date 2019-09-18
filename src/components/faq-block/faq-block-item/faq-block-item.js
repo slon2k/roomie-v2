@@ -13,7 +13,7 @@ export default class FaqBlockItem extends Component {
             <li key={item.id} className="faq-item">
                 <div className="faq-item-question">
                     {item.question}
-                    <div className={ showAnswer? "faq-item-control faq-item-control--open" : "faq-item-control"}
+                    <div className={ showAnswer? "faq-item-control faq-item-control--open" : "faq-item-control" }
                          onClick={() => this.setState({showAnswer: !showAnswer})}>
                     </div>
                 </div>
