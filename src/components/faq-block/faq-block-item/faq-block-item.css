@@ -31,3 +31,26 @@
 .faq-item-control--open {
     background-image: url("./../../../images/minus.png");
 }
+
+/* Transition */
+.show-answer-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.show-answer-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+.show-answer-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.show-answer-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+}

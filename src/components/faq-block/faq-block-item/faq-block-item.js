@@ -1,5 +1,6 @@
-import React, {Component} from "react"
-import "./faq-block-item.css"
+import React, {Component} from "react";
+import "./faq-block-item.css";
+import { CSSTransition } from "react-transition-group";
 
 export default class FaqBlockItem extends Component {
 
@@ -16,7 +17,16 @@ export default class FaqBlockItem extends Component {
                          onClick={() => this.setState({showAnswer: !showAnswer})}>
                     </div>
                 </div>
-                {this.state.showAnswer && <div className="faq-item-answer">{item.answer}</div>}
+                <CSSTransition
+                    in={showAnswer}
+                    timeout={200}
+                    classNames="show-answer"
+                    unmountOnExit
+                    appear
+                >
+                    <div className="faq-item-answer">{item.answer}</div>
+                </CSSTransition>
+
             </li>
         )
     }
