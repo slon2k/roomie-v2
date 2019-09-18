@@ -1,6 +1,6 @@
 .page {
     padding: 90px 0px;
-    background-color: #E5E5E5;
+    background-color: #F9F9F9;
 }
 
 .title2 {
@@ -10,11 +10,12 @@
     font-size: 50px;
     text-align: center;
     color: #292A34;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 .title-groups {
     position: relative;
-    margin: 100px 0;
 }
 
 .title-groups::before {

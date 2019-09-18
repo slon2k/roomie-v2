@@ -3,6 +3,7 @@
     padding: 50px;
     display: flex;
     position: relative;
+    margin-bottom: 100px;
 }
 
 .profile-edit-button {

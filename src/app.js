@@ -68,7 +68,9 @@ export default class App extends Component {
                                    />
                                }
                         />
-                        <Route exact path={'/faq'} component={FAQPage}/>
+                        <Route exact path={'/faq'}
+                               render = {() => <FAQPage questions={this.data.getQuestions()}/>}
+                        />
                         <Route exact path={'/group/:id'}
                                render ={({match}) => {
                                    //console.log("APP", this.getGroupById(parseInt(match.params.id)));

@@ -1,0 +1,33 @@
+.faq-item {
+    border-bottom: solid #C2C2C2 2px;
+    padding: 20px 0;
+}
+
+.faq-item-question {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+}
+
+.faq-item-answer {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.faq-item-control {
+    margin-top: 5px;
+    width: 16px;
+    height: 16px;
+    background-image: url("./../../../images/plus.png");
+}
+
+.faq-item-control--open {
+    background-image: url("./../../../images/minus.png");
+}
