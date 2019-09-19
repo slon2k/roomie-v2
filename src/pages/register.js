@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import {
     Radio,
@@ -13,398 +13,88 @@ import {
     Checkbox,
     Select,
     TextArea,
-    Section
+    Section, Title
 } from "bloomer";
 
-class RegisterPage extends Component {
-    state = {
-        num: "first"
-    };
+import { COUNTRIES } from "../utils";
 
-    firstButton() {
-        this.setState({num: "second"});
-    }
-
-    secondButton() {
-        this.setState({num: "third"});
-    }
-
-    thirdButton() {
-        this.setState({num: "done"});
-    }
-
-    render() {
-        let {num} = this.state;
-        return (
-            <Container style={{"margin-bottom": "246px"}}>
-                <Section isHidden={(num !== "first")}>
-                    <p style={{
-                        "font-family": "Roboto",
-                        "font-style": "normal",
-                        "font-weight": "500",
-                        "font-size": "48px",
-                        "line-height": "56px",
-                        "text-align": "center",
-                        "letter-spacing": "0.25px",
-                        "margin-top": "120px",
-
-                        "color": "#000000"
-
-                    }}>Регистрация</p>
-                    <Container style={{"width": "370px", "margin-top": "45px"}}>
-                        <Field>
-                            <Label>Электронный адрес</Label>
-                            <Control>
-                                <Input type="text" placeholder='example@gmail.com'
-                                       style={{
-                                           "margin-top": "4px",
-                                           "background": "#FFFFFF",
-                                           "border": "1px solid #0019FF",
-                                           "box-sizing": "border-box",
-                                           "border-radius": "8px",
-                                           "height": "48px"
-                                       }}/>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label style={{"margin-top": "10px"}}>Пароль</Label>
-                            <Control>
-                                <Input type="password"
-                                       placeholder='password'
-                                       style={{
-                                           "margin-top": "4px",
-                                           "background": "#FFFFFF",
-                                           "border": "1px solid #0019FF",
-                                           "box-sizing": "border-box",
-                                           "border-radius": "8px",
-                                           "height": "48px"
-                                       }}/>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label style={{"margin-top": "10px"}}>Повторите пароль</Label>
-                            <Control>
-                                <Input type="password" placeholder='password' style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #0019FF",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "48px"
-                                }}/>
-                            </Control>
-                        </Field>
-                        <Control isPulled="right">
-                            <Button onClick={() => this.firstButton()}
-                                    style={{
-                                "background": "#001AFF",
-                                "border-radius": "4px",
-                                "height": "54px",
-                                "width": "168px",
-                                "font-family": "Roboto",
-                                "font-style": "normal",
-                                "font-weight": "500",
-                                "font-size": "14px",
-                                "line-height": "16px",
-                                "letter-spacing": "0.25px",
-
-                                "color": "#FFFFFF"
-                            }}>Дальше</Button>
+const RegisterPage = () => {
+    return (
+        <Container>
+            <Section style={{"margin-top": "50px"}}>
+                <Title isSize={2} hasTextAlign="centered">Регистрация</Title>
+            </Section>
+            <Section style={{"max-width": "500px", "margin": "0 auto"}}>
+                <form>
+                    <Field>
+                        <Label isSize="medium">Электронная почта</Label>
+                        <Control>
+                            <Input type="email" placeholder='example@gmail.com' isSize="medium"/>
                         </Control>
-                    </Container>
-                </Section>
-                <Section isHidden={(num !== "second")}>
-                    <p style={{
-                        "font-family": "Roboto",
-                        "font-style": "normal",
-                        "font-weight": "500",
-                        "font-size": "48px",
-                        "line-height": "56px",
-                        "text-align": "center",
-                        "letter-spacing": "0.25px",
-                        "margin-top": "120px",
-
-                        "color": "#000000"
-
-                    }}>Завершение регистрации</p>
-                    <Container style={{"width": "370px", "margin-top": "45px"}}>
-                        <Field>
-                            <Label>ФИО</Label>
-                            <Control>
-                                <Input type="text" placeholder='Коробейникова Екатерина Борисовна'
-                                       style={{
-                                           "margin-top": "4px",
-                                           "background": "#FFFFFF",
-                                           "border": "1px solid #0019FF",
-                                           "box-sizing": "border-box",
-                                           "border-radius": "8px",
-                                           "height": "48px"
-                                       }}/>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label>Пол</Label>
-                            <Control>
-                                <Select style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #0019FF",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "48px",
-                                    "width": "370px"
-                                }}>
-                                    <option>Женский</option>
-                                    <option>Мужской</option>
-                                </Select>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label style={{"margin-top": "10px"}}>Родная страна</Label>
-                            <Control>
-                                <Select style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #0019FF",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "48px",
-                                    "width": "370px"
-                                }}>
-                                    <option>Не выбрано</option>
-                                    <option>Казахстан</option>
-                                </Select>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label style={{"margin-top": "10px"}}>Родной город</Label>
-                            <Control>
-                                <Select style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #C2C2C2",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "48px",
-                                    "width": "370px"
-                                }}>
-                                    <option>Не выбрано</option>
-                                </Select>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label style={{"margin-top": "10px"}}>Университет или колледж</Label>
-                            <Control>
-                                <Select style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #C2C2C2",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "48px",
-                                    "width": "370px"
-                                }}>
-                                    <option>Не выбрано</option>
-                                </Select>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label style={{"margin-top": "10px"}}>Специальность</Label>
-                            <Control>
-                                <Select style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #C2C2C2",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "48px",
-                                    "width": "370px"
-                                }}>
-                                    <option>Не выбрано</option>
-                                </Select>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label style={{"margin-top": "10px"}}>Контактный телефон</Label>
-                            <Control>
-                                <Input type="tel" placeholder='+77059116279' style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #C2C2C2",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "48px",
-                                    "width": "370px"
-                                }}/>
-                            </Control>
-                        </Field>
-                        <Control isPulled="right">
-                            <Button onClick={() => this.secondButton()}
-                                    style={{
-                                "background": "#001AFF",
-                                "border-radius": "4px",
-                                "height": "54px",
-                                "width": "168px",
-                                "font-family": "Roboto",
-                                "font-style": "normal",
-                                "font-weight": "500",
-                                "font-size": "14px",
-                                "line-height": "16px",
-                                "letter-spacing": "0.25px",
-
-                                "color": "#FFFFFF"
-                            }}>Дальше</Button>
+                    </Field>
+                    <Field>
+                        <Label isSize="medium">Пароль</Label>
+                        <Control>
+                            <Input type="password" isSize="medium" placeholder='password'/>
                         </Control>
-                    </Container>
-                </Section>
-                <Section isHidden={(num !== "third")}>
-                    <p style={{
-                        "font-family": "Roboto",
-                        "font-style": "normal",
-                        "font-weight": "500",
-                        "font-size": "48px",
-                        "line-height": "56px",
-                        "text-align": "center",
-                        "letter-spacing": "0.25px",
-                        "margin-top": "120px",
-
-                        "color": "#000000"
-
-                    }}>Ещё немного вопросов :)</p>
-                    <Container style={{"width": "370px", "margin-top": "45px"}}>
-                        <Field>
-                            <Label>В каком городе вы ищете жилье?</Label>
-                            <Control>
-                                <Select style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #0019FF",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "48px",
-                                    "width": "370px"
-                                }}>
-                                    <option>Женский</option>
-                                    <option>Мужской</option>
-                                </Select>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label>Максимально число сожителей</Label>
-                            <Control>
-                                <Input type="text"
-                                       style={{
-                                           "margin-top": "4px",
-                                           "background": "#FFFFFF",
-                                           "border": "1px solid #0019FF",
-                                           "box-sizing": "border-box",
-                                           "border-radius": "8px",
-                                           "height": "48px"
-                                       }}/>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label>Период аренды</Label>
-                            <Control>
-                                <Select style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #0019FF",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "48px",
-                                    "width": "370px"
-                                }}>
-                                    <option>Не выбрано</option>
-                                </Select>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label style={{"margin-top": "10px"}}>Языки</Label>
-                            <Control>
-                                <Select style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #0019FF",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "48px",
-                                    "width": "370px"
-                                }}>
-                                    <option>Не выбрано</option>
-                                    <option>Казахстан</option>
-                                </Select>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label style={{"margin-top": "10px"}}>Есть ли животные</Label>
-                            <Control>
-                                <Select style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #C2C2C2",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "48px",
-                                    "width": "370px"
-                                }}>
-                                    <option>Не выбрано</option>
-                                </Select>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label style={{"margin-top": "10px"}}>Есть ли вредные привычки</Label>
-                            <Control>
-                                <Select style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #C2C2C2",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "48px",
-                                    "width": "370px"
-                                }}>
-                                    <option>Не выбрано</option>
-                                </Select>
-                            </Control>
-                        </Field>
-                        <Field>
-                            <Label style={{"margin-top": "10px"}}>Дополнительная информация</Label>
-                            <Control>
-                                <Input type="text"
-                                       placeholder='Любая информация, о которой считаете необходимым сообщить' style={{
-                                    "margin-top": "4px",
-                                    "background": "#FFFFFF",
-                                    "border": "1px solid #C2C2C2",
-                                    "box-sizing": "border-box",
-                                    "border-radius": "8px",
-                                    "height": "98px",
-                                    "width": "370px"
-                                }}/>
-                            </Control>
-                        </Field>
-                        <Control isPulled="right">
-                            <Button onClick={() => this.thirdButton()}
-                                    style={{
-                                "background": "#001AFF",
-                                "border-radius": "4px",
-                                "height": "54px",
-                                "width": "341px",
-                                "font-family": "Roboto",
-                                "font-style": "normal",
-                                "font-weight": "500",
-                                "font-size": "14px",
-                                "line-height": "16px",
-                                "letter-spacing": "0.25px",
-
-                                "color": "#FFFFFF"
-                            }}>Готово!</Button>
+                    </Field>
+                    <Field>
+                        <Label isSize="medium">Повторите пароль</Label>
+                        <Control>
+                            <Input type="password" isSize="medium" placeholder='password'/>
                         </Control>
-                    </Container>
-                </Section>
-            </Container>
-        );
-    }
-}
+                    </Field>
+                    <Button isColor='primary' isSize="medium" style={{"margin-top": "10px"}}>Дальше</Button>
+                </form>
+            </Section>
+            <Section>
+                <Title isSize={2} hasTextAlign="centered">Завершение регистрации</Title>
+            </Section>
+            <Section style={{"max-width": "500px", "margin": "0 auto"}}>
+                <form>
+                    <Field>
+                        <Label isSize="medium">ФИО</Label>
+                        <Control>
+                            <Input type="text" placeholder='Александр Сергеевич Пушкин' isSize="medium"/>
+                        </Control>
+                    </Field>
+                    <Field>
+                        <Label isSize="medium">Пол</Label>
+                        <Control className="is-expanded">
+                            <Select isSize="medium" className="is-fullwidth">
+                                <option>Женский</option>
+                                <option>Мужской</option>
+                            </Select>
+                        </Control>
+                    </Field>
+                    <Field>
+                        <Label isSize="medium">Родная страна</Label>
+                        <Control className="is-expanded">
+                            <Select isSize="medium" className="is-fullwidth">
+                                { COUNTRIES.map(country => <option value={country}>{country}</option>) }
+                            </Select>
+                        </Control>
+                    </Field>
+                    <Field>
+                        <Label isSize="medium">Пароль</Label>
+                        <Control>
+                            <Input type="password" isSize="medium" placeholder='password'/>
+                        </Control>
+                    </Field>
+                    <Field>
+                        <Label isSize="medium">Повторите пароль</Label>
+                        <Control>
+                            <Input type="password" isSize="medium" placeholder='password'/>
+                        </Control>
+                    </Field>
+                    <Button isColor='primary' isSize="medium" style={{"margin-top": "10px"}}>Дальше</Button>
+                </form>
+            </Section>
+
+
+
+        </Container>
+    );
+};
 
 export default RegisterPage;
