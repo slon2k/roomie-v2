@@ -3,8 +3,12 @@
     background-color: #F9F9F9;
 }
 
+.home-page {
+    padding: 90px 0;
+}
+
 .title2 {
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 50px;
@@ -12,6 +16,14 @@
     color: #292A34;
     margin-top: 60px;
     margin-bottom: 60px;
+}
+
+.title3 {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    color: black;
 }
 
 .title-groups {

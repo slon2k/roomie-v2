@@ -1,0 +1,31 @@
+.promo-block {
+    max-width: 400px
+}
+
+.promo-block-text {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: black;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.promo-block-button {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: white;
+    background-color: #001AFF;
+    text-align: center;
+    padding: 10px;
+    display: block;
+}
+
+.promo-block-button:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 0.9;
+}
