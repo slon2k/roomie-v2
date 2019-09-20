@@ -10,7 +10,7 @@ const AppFooter = () => {
                 <Container>
                     <Columns className='container'>
                         <Column>
-                            <div className={"logo"}>Roomie</div>
+                            <div className="logo">Roomie</div>
                         </Column>
                         <Column>
                             <div className="footer-title">
@@ -48,9 +48,7 @@ const AppFooter = () => {
             </div>
             <div className='footer-footer'>
                 <Container>
-                    <div className='container'>
-                        Roomie (c) 2019 All right
-                    </div>
+                    Roomie (c) 2019 All right
                 </Container>
             </div>
         </div>
